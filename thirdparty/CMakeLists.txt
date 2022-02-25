@@ -105,6 +105,14 @@ macro(build_faiss)
                  --without-cuda )
     endif ()
 
+    if (MSYS)
+        # patch for folder faiss/faiss, symlink not work for msys
+        execute_process(
+            COMMAND bash -c "test -f faiss/faiss/Index.h || (rm -fr faiss/faiss && cp -fr faiss faiss.tmp && mv faiss.tmp faiss/faiss)"
+            WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+        )
+    endif (MSYS)
+
     message( STATUS "Building FAISS with configure args -${FAISS_CONFIGURE_ARGS}" )
 
     #Notice: there will not set LDFLAGS value
