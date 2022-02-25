@@ -13,7 +13,7 @@ namespace faiss {
 
 class InstructionSet {
  public:
-    static InstructionSet&
+    inline static InstructionSet&
     GetInstance() {
         static InstructionSet inst;
         return inst;

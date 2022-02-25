@@ -86,7 +86,7 @@ IndexFactoryNM(const milvus::knowhere::IndexType& type, const milvus::knowhere::
 
 class ParamGenerator {
  public:
-    static ParamGenerator&
+    inline static ParamGenerator&
     GetInstance() {
         static ParamGenerator instance;
         return instance;
