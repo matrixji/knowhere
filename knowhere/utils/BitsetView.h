@@ -214,7 +214,7 @@ class ConcurrentBitset {
             return x;
         };
         for (size_t i = 0; i < len; ++i) {
-            ret += __builtin_popcountl(*p_data);
+            ret += __builtin_popcountll(*p_data);
             p_data++;
         }
         auto p_byte = data() + (len << 3);
@@ -308,7 +308,7 @@ class BitsetView {
             return x;
         };
         for (int64_t i = 0; i < len; ++i) {
-            ret += __builtin_popcountl(*p_data);
+            ret += __builtin_popcountll(*p_data);
             p_data++;
         }
         auto p_byte = blocks_ + (len << 3);

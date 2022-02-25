@@ -27,10 +27,7 @@ class VecIndexFactory {
 
  public:
     static VecIndexFactory&
-    GetInstance() {
-        static VecIndexFactory inst;
-        return inst;
-    }
+    GetInstance();
 
     VecIndexPtr
     CreateVecIndex(const IndexType& type, const IndexMode mode = IndexMode::MODE_CPU);
