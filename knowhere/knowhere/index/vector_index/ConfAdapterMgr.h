@@ -31,7 +31,7 @@ class AdapterMgr {
         }
     };
 
-    static AdapterMgr&
+    inline static AdapterMgr&
     GetInstance() {
         static AdapterMgr instance;
         return instance;

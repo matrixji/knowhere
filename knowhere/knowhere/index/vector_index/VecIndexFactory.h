@@ -27,7 +27,7 @@ class VecIndexFactory {
     operator=(const VecIndexFactory&) = delete;
 
  public:
-    static VecIndexFactory&
+    inline static VecIndexFactory&
     GetInstance() {
         static VecIndexFactory inst;
         return inst;

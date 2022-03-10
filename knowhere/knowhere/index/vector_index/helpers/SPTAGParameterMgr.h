@@ -32,7 +32,7 @@ class SPTAGParameterMgr {
     GetBKTParameters();
 
  public:
-    static SPTAGParameterMgr&
+    inline static SPTAGParameterMgr&
     GetInstance() {
         static SPTAGParameterMgr instance;
         return instance;
