@@ -13,7 +13,7 @@
 #include "common/Log.h"
 #include "index/vector_index/VecIndexFactory.h"
 
-#ifdef __linux__
+#if defined(__linux__) || defined(__MINGW64__)
 #include "IndexAnnoy.h"
 #include "IndexBinaryIDMAP.h"
 #include "IndexBinaryIVF.h"
@@ -56,7 +56,7 @@ namespace knowhere {
 
 VecIndexPtr
 VecIndexFactory::CreateVecIndex(const IndexType& type, const IndexMode mode) {
-#ifdef __linux__
+#if defined(__linux__) || defined(__MINGW64__)
 #ifdef KNOWHERE_GPU_VERSION
     auto gpu_device = -1;  // TODO: remove hardcode here, get from invoker
 #endif

@@ -60,7 +60,7 @@ if ( LINUX AND ENABLE_PROFILING )
 endif()
 
 # ****************************** Thirdparty NGT ***************************************
-if ( LINUX AND KNOWHERE_SUPPORT_NGT )
+if ( (LINUX OR MSYS) AND KNOWHERE_SUPPORT_NGT )
     add_subdirectory( NGT )
 endif()
 
@@ -162,7 +162,7 @@ macro(build_faiss)
 
 endmacro()
 
-if ( LINUX )
+if ( LINUX OR MSYS )
     if ( KNOWHERE_WITH_FAISS AND NOT TARGET faiss_ep )
         if ( FAISS_SOURCE STREQUAL "AUTO" )
             # find_package(FAISS MODULE)

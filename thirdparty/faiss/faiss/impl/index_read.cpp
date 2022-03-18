@@ -14,7 +14,11 @@
 #include <cstdio>
 #include <cstdlib>
 
+#ifdef __MINGW64__
+#include "../annoy/src/mman.h"
+#else
 #include <sys/mman.h>
+#endif
 #include <sys/stat.h>
 #include <sys/types.h>
 

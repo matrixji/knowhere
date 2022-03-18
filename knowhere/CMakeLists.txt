@@ -29,7 +29,7 @@ set(config_srcs
         archive/KnowhereConfig.cpp
         )
 
-if ( LINUX )
+if ( LINUX OR MSYS )
     if (KNOWHERE_SUPPORT_NGT)
         include_directories(${KNOWHERE_SOURCE_DIR}/thirdparty/NGT/lib)
     endif ()
@@ -184,7 +184,7 @@ if ( LINUX )
         target_include_directories(knowhere PUBLIC ${KNOWHERE_SOURCE_DIR}/knowere)
     endif ()
 
-    target_link_libraries(knowhere ${depend_libs})
+    target_link_libraries(knowhere PRIVATE ${depend_libs})
     set(KNOWHERE_INCLUDE_DIRS
         ${KNOWHERE_SOURCE_DIR}
         ${KNOWHERE_SOURCE_DIR}/thirdparty

@@ -11,9 +11,10 @@
 
 include_directories(${KNOWHERE_SOURCE_DIR}/thirdparty)
 
-if ( LINUX )
+if ( LINUX OR MSYS )
     include_directories(${KNOWHERE_SOURCE_DIR}/thirdparty/SPTAG/AnnService)
     include_directories(${KNOWHERE_SOURCE_DIR}/thirdparty/NGT/lib)
+    include_directories(${KNOWHERE_SOURCE_DIR}/thirdparty/faiss)
 endif ()
 include_directories(${KNOWHERE_SOURCE_DIR}/knowhere)
 include_directories(${KNOWHERE_SOURCE_DIR})
@@ -62,7 +63,7 @@ set( UTIL_SRCS
         ${KNOWHERE_SOURCE_DIR}/unittest/utils.cpp
         )
 
-if ( LINUX )
+if ( LINUX OR MSYS )
     set( UTIL_SRCS
             ${UTIL_SRCS}
             ${KNOWHERE_SOURCE_DIR}/knowhere/index/vector_index/helpers/FaissIO.cpp
@@ -70,7 +71,7 @@ if ( LINUX )
             )
 endif ()
 
-if ( LINUX AND KNOWHERE_GPU_VERSION )
+if ( ( LINUX OR MSYS ) AND KNOWHERE_GPU_VERSION )
     include_directories( ${CUDA_INCLUDE_DIRS} )
     link_directories( "${CUDA_TOOLKIT_ROOT_DIR}/lib64" )
     set( CUDA_LIB
@@ -83,7 +84,7 @@ if ( LINUX AND KNOWHERE_GPU_VERSION )
             )
 endif ()
 
-if ( LINUX )
+if ( LINUX OR MSYS )
     set( FAISS_SRCS
             ${KNOWHERE_SOURCE_DIR}/knowhere/index/vector_index/FaissBaseIndex.cpp
             ${KNOWHERE_SOURCE_DIR}/knowhere/index/vector_index/FaissBaseBinaryIndex.cpp
@@ -132,7 +133,7 @@ set( ALL_INDEXING_SRCS
         test_structured_index_flat.cpp
         )
 
-if ( LINUX )
+if ( LINUX OR MSYS )
     set(ALL_INDEXING_SRCS
             ${ALL_INDEXING_SRCS}
             test_annoy.cpp

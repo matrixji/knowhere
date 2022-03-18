@@ -281,5 +281,4 @@ int fvec_madd_and_argmin_ref(
     }
     return imin;
 }
-
 } // namespace faiss
